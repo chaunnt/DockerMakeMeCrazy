@@ -34,11 +34,3 @@ RUN apt update &&                  \
         qtbase5-private-dev      &&\
     apt clean
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-COPY ./ /usr/src/app
-RUN qmake BDS_BackEnd_Collector.pro -spec linux-g++ CONFIG+=qtquickcompiler && make qmake_all
-RUN make -j4
-RUN make install
-CMD ["/opt/BDS_BackEnd_Collector/bin/BDS_BackEnd_Collector"]
-
