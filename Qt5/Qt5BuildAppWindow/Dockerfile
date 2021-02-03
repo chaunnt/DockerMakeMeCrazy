@@ -1,0 +1,30 @@
+FROM microsoft/dotnet-framework:3.5-sdk-windowsservercore-1709
+MAINTAINER ChauNNT <chaupad@gmail.com>
+
+SHELL ["cmd", "/S", "/C"]
+
+# Install Node.js LTS
+ADD https://nodejs.org/dist/v8.11.3/node-v8.11.3-x64.msi C:\TEMP\node-install.msi
+RUN start /wait msiexec.exe /i C:\TEMP\node-install.msi /l*vx "%TEMP%\MSI-node-install.log" /qn ADDLOCAL=ALL
+
+# Download and install Build Tools for Visual Studio 2017.
+ADD https://aka.ms/vs/15/release/vs_buildtools.exe C:\TEMP\vs_buildtools.exe
+RUN CC:\TEMP\vs_buildtools.exe --quiet --wait --norestart --nocache --channelUri C:\TEMP\VisualStudio.chman --installChannelUri C:\TEMP\VisualStudio.chman && \
+    --add Microsoft.VisualStudio.Workload.ManagedDesktopBuildTools && \
+    --add Microsoft.Net.Component.3.5.DeveloperTools && \
+    --add Microsoft.Net.ComponentGroup.4.6.2.DeveloperTools && \
+    --add Microsoft.Net.ComponentGroup.TargetingPacks.Common && \
+    --add Microsoft.VisualStudio.Component.TestTools.BuildTools && \
+    --add Microsoft.VisualStudio.Workload.VCTools && \
+    --add Microsoft.VisualStudio.Component.VC.140 && \
+    --add Microsoft.VisualStudio.Component.VC.ATL && \
+    --add Microsoft.VisualStudio.Component.VC.CLI.Support && \
+    --add Microsoft.VisualStudio.Component.Windows10SDK.16299.Desktop && \
+    --add Microsoft.VisualStudio.ComponentGroup.NativeDesktop.WinXP && \
+    --add Microsoft.VisualStudio.Workload.NodeBuildTools && \
+    --add Microsoft.VisualStudio.Component.TypeScript.2.8 && \
+    --installPath C:\BuildTools
+
+# Use developer command prompt and start PowerShell if no other command specified.
+ENTRYPOINT C:\BuildTools\Common7\Tools\VsDevCmd.bat &&
+
