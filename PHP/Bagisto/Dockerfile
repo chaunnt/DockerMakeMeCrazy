@@ -42,6 +42,7 @@ RUN docker-php-ext-install gd pdo pdo_mysql intl pcntl mbstring tokenizer zip my
 COPY --chown=${APP_USER}:${APP_USER} composer.json composer.lock ${APP_ROOT}/
 RUN composer global require laravel/installer
 # RUN export COMPOSER_MEMORY_LIMIT=-1 && composer update
-RUN export COMPOSER_PROCESS_TIMEOUT=900 && composer install --no-autoloader --no-scripts --no-plugins
+RUN export COMPOSER_PROCESS_TIMEOUT=900 && composer install --no-autoloader --no-scripts --no-plugins --no-dev
+
 
 
