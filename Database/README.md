@@ -1,5 +1,9 @@
 # Create Database and user command
 
+## SFTP USER
+useradd -d <folder path> -s /bin/bash <username>
+passwd <username>
+
 ## Postgre
 Connect by psql and run commands:
 
@@ -45,8 +49,8 @@ use <database-name>
 
 db.createUser(
  {
-   user: "hodaceread",
-   pwd: "hodacereadpass",
-   roles: [ { role: "read", db: "hodace_dev" } ]
+   user: "hodacedev",
+   pwd: "hodacedevpass",
+   roles: [ { role: "readWrite", db: "hodace_dev" } ]
  }
 ) 
