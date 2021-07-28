@@ -3,6 +3,7 @@
 ## SFTP USER
 useradd -d <folder path> -s /bin/bash <username>
 passwd <username>
+chmod ugo+rwx -R <folder path>
 
 ## Postgre
 Connect by psql and run commands:
