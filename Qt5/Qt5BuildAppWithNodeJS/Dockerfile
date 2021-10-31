@@ -41,4 +41,5 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x  | bash -
 RUN apt-get -y install nodejs
 RUN npm -v
 RUN node -v
+RUN npm install pm2 -g
 

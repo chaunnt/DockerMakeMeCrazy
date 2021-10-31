@@ -14,10 +14,10 @@ If you need any further development, feel free to drop me an issue or email to c
 
 # How to build
 
-docker build -f Dockerfile -t dockerdrivemecrazy/qt5buildandrun:latest .
+docker build -f Dockerfile -t dockerdrivemecrazy/qt5-build-and-run-with-nodejs:latest .
 
-docker push dockerdrivemecrazy/qt5buildandrun
+docker push dockerdrivemecrazy/qt5-build-and-run-with-nodejs
 
-docker run -v -d -t dockerdrivemecrazy/qt5buildandrun:latest --restart unless-stopped
+docker run -v -d -t dockerdrivemecrazy/qt5-build-and-run-with-nodejs:latest --restart unless-stopped
 
 

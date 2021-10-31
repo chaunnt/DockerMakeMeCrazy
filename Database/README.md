@@ -50,8 +50,27 @@ use <database-name>
 
 db.createUser(
  {
+   user: "hodaceread",
+   pwd: "hodacereadpass",
+   roles: [ { role: "read", db: "admin" } ]
+ }
+) 
+
+db.createUser(
+ {
    user: "hodacedev",
    pwd: "hodacedevpass",
    roles: [ { role: "readWrite", db: "hodace_dev" } ]
  }
 ) 
+
+db.updateUser(
+   "hodacedev",
+   {
+     roles: [ { role: "readWrite", db: "hodace_dev" } ]
+   }
+)
+
+db.dropUser("hodacedev", {w: "majority", wtimeout: 5000})
+
+
