@@ -4,15 +4,11 @@
 
 Refer `https://docs.docker.com/engine/install/debian/` for details
 
-sudo apt-get remove docker docker-engine docker.io containerd runc
+apt-get remove docker docker-engine docker.io containerd runc
 
-sudo apt-get update
+apt-get update
 
-sudo apt-get install \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
+apt-get install ca-certificates curl gnupg lsb-release -y
 
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
@@ -20,9 +16,9 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-sudo apt-get update
+apt-get update
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+apt-get install docker-ce docker-ce-cli containerd.io -y
 
 
 ## Install caprover from docker
@@ -38,9 +34,9 @@ docker run -p 80:80 -p 443:443 -p 3000:3000 -v /var/run/docker.sock:/var/run/doc
 
 curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
 
-sudo apt update
+apt update
 
-sudo apt install nodejs npm
+apt install nodejs npm -y
 
 ## Setup caprover
 
