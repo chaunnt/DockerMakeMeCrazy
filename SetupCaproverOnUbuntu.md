@@ -12,7 +12,7 @@ sudo apt-get install ca-certificates curl gnupg lsb-release -y
 
 sudo apt-get install docker.io -y
 
-
+echo "Done Docker"
 
 ## Install caprover from docker
 
