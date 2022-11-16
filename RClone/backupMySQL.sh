@@ -4,14 +4,16 @@
 SERVER_NAME=SN-179
 RCLONE="/usr/sbin/rclone"
 TIMESTAMP=$(date +"%F")
-BACKUP_DIR="/backup/mysql_$TIMESTAMP"
+PROJECT_NAME=FI_NETWORK
+BACKUP_DIR="/backup/$PROJECT_NAME/mysql_$TIMESTAMP"
+
 
 # Database info
-DB_HOST=nettruyen-db.makefamousapp.com
-DB_PORT=1235
-DB_NAME=nettruyen
-DB_USER=nettruyenuser
-DB_PASSWORD=nettruyenuserpass
+DB_HOST=mysql-production-db.demo.poolata.com
+DB_PORT=1239
+DB_NAME=facmine
+DB_USER=facmineuser
+DB_PASSWORD=facmineuserpass
 
 echo "Starting Backup Data"
 
@@ -25,7 +27,7 @@ mysqldump -h $DB_HOST -u $DB_USER –p $DB_PASSWORD $DB_NAME > "mysql_$TIMESTAMP
 
 # Upload
 zip -r "$BACKUP_DIR/data/data.zip" "/backup"
-$RCLONE move $BACKUP_DIR/data/data.zip "drive:$SERVER_NAME/$TIMESTAMP/data"
+$RCLONE move $BACKUP_DIR/data/data.zip "drive:$SERVER_NAME/$BACKUP_DIR/data"
 echo "Finished"
 echo ''
 
