@@ -32,11 +32,13 @@ docker run -p 80:80 -p 443:443 -p 3000:3000 -v /var/run/docker.sock:/var/run/doc
 
 ## Install npm / node (we use v12)
 
-curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
+curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
 
 apt update
 
-apt install nodejs npm -y
+apt install -y nodejs 
+
+apt install -y npm
 
 ## Setup caprover
 

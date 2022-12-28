@@ -20,13 +20,9 @@ ALTER DATABASE <db-name> OWNER TO <user>;
 
 CREATE DATABASE <db-name>;
 
-CREATE USER "<username>" IDENTIFIED BY "<password>";
+CREATE USER "username" IDENTIFIED BY "password";
 
-GRANT USAGE ON *.* TO "<username>"@"%";
-
-=> full permission 
-
-GRANT ALL privileges ON <db-name>.* TO "<username>"@"%";
+GRANT ALL privileges ON <db-name>.* TO "username"@"%";
 
 ⇒ read/write permission only
 
@@ -58,9 +54,9 @@ db.createUser(
 
 db.createUser(
  {
-   user: "hodacedev",
-   pwd: "hodacedevpass",
-   roles: [ { role: "readWrite", db: "hodace_dev" } ]
+   user: "vaylongbinhuser",
+   pwd: "vaylongbinhuserpass",
+   roles: [ { role: "readWrite", db: "vaylongbinh" } ]
  }
 ) 
 
