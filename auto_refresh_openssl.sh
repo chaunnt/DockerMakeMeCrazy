@@ -1,4 +1,9 @@
-cp -f /captain/data/letencrypt/etc/live/cdn.avatrader1.com/chain.pem /root/top1tradeindex/
-cp -f /captain/data/letencrypt/etc/live/cdn.avatrader1.com/privkey.pem /root/top1tradeindex/
-cp -f /captain/data/letencrypt/etc/live/cdn.avatrader1.com/fullchain.pem /root/top1tradeindex/
-cp -f /captain/data/letencrypt/etc/live/cdn.avatrader1.com/cert.pem /root/top1tradeindex/
+#!/bin/bash
+echo "update open SSL for $1"
+rm -rf "/root/$1/"
+mkdir "/root/$1/"
+cp -f "/captain/data/letencrypt/etc/live/$1/chain.pem" "/root/$1/"
+cp -f "/captain/data/letencrypt/etc/live/$1/privkey.pem" "/root/$1/"
+cp -f "/captain/data/letencrypt/etc/live/$1/fullchain.pem" "/root/$1/"
+cp -f "/captain/data/letencrypt/etc/live/$1/cert.pem" "/root/$1/"
+
