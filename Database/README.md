@@ -54,9 +54,33 @@ db.createUser(
 
 db.createUser(
  {
-   user: "vaylongbinhuser",
-   pwd: "vaylongbinhuserpass",
-   roles: [ { role: "readWrite", db: "vaylongbinh" } ]
+   user: "vaytiennonguser",
+   pwd: "vaytiennonguserpass",
+   roles: [ { role: "readWrite", db: "vaytiennong" } ]
+ }
+) 
+
+db.createUser(
+ {
+   user: "vaytientamquocuser",
+   pwd: "vaytientamquocuserpass",
+   roles: [ { role: "readWrite", db: "vaytientamquoc" } ]
+ }
+) 
+
+db.createUser(
+ {
+   user: "vaytienvietcredituser",
+   pwd: "vaytienvietcredituserpass",
+   roles: [ { role: "readWrite", db: "vaytienvietcredit" } ]
+ }
+) 
+
+db.createUser(
+ {
+   user: "vaytienvietcreditcopyuser",
+   pwd: "vaytienvietcreditcopyuserpass",
+   roles: [ { role: "readWrite", db: "vaytienvietcreditcopy" } ]
  }
 ) 
 
