@@ -42,4 +42,6 @@ curl 'https://portal3.brandsms.vn/apis/17f5a610c6b64275886dc5f587a9c8ba' \
 
 pm2 start --no-autorestart --cron "10 * * * *" /root/auto_backup_alldatabase.sh
 
+#https://api.telegram.org/bot7057162830:AAECDYWhnBKENS5m1q_jFAIBobabM_turuI/getUpdates
+
 https://www.google.com/url?sa=i&url=https%3A%2F%2Fc2nguyendinhchieu.vinhlong.edu.vn%2Fdanh-muc-tin%2Fthong-bao%2Fdanh-sach-gvcn-nam-hoc-2021-2022.html&psig=AOvVaw3eq6kS7bw-KtDbfa_2unBO&ust=1689563568928000&source=images&cd=vfe&opi=89978449&ved=2ahUKEwjhp4r0oJKAAxVck1YBHQjhBpAQr4kDegQIARB0
