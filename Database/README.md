@@ -94,3 +94,19 @@ db.updateUser(
 db.dropUser("hodacedev", {w: "majority", wtimeout: 5000})
 
 
+#Postgres change all table owner
+DO $$ 
+DECLARE
+    rec RECORD;
+BEGIN
+    FOR rec IN 
+        SELECT tablename 
+        FROM pg_tables 
+        WHERE schemaname = 'public'
+    LOOP
+        EXECUTE 'ALTER TABLE public.' || rec.tablename || ' OWNER TO new_user;';
+    END LOOP;
+END $$;
+
+#add public key to server
+cat ~/.ssh/id_rsa.pub | ssh USER@HOST "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"

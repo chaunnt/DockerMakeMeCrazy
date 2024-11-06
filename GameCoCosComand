@@ -1,0 +1,179 @@
+1  sudo timedatectl set-timezone Asia/Ho_Chi_Minh
+    2  sudo apt update
+    3  apt install unzip
+    4  cd /var/ 
+    5  unzip app
+    6  sudo apt install apt-transport-https ca-certificates curl software-properties-common -y 
+    7  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    8  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+    9  sudo apt update
+   10  apt-cache policy docker-ce
+   11  sudo apt install docker-ce -y
+   12  sudo curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+   13  sudo chmod +x /usr/local/bin/docker-compose
+   14  docker-compose --version
+   15  docker volume create --name=mongo-db
+   16  docker volume create --name=game-db
+   17  cd /var/app/install
+   18  docker-compose up
+   19  docker-compose start
+   20  docker exec -it -u root game-db bash
+   21  sudo apt install nginx -y
+   22  sudo apt install ufw
+   23  sudo ufw allow ssh
+   24  sudo ufw allow 22
+   25  sudo ufw allow 'Nginx Full'
+   26  sudo ufw allow 443
+   27  sudo ufw allow 443/tcp
+   28  sudo ufw allow 80
+   29  sudo ufw allow 80/tcp
+   30  sudo add-apt-repository ppa:ondrej/php
+   31  sudo apt install php7.4-fpm php7.4-mbstring php7.4-mysql php7.4-curl -y
+   32  sudo apt-get install openjdk-8-jdk -y
+   33  wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+   34  sudo dpkg -i packages-microsoft-prod.deb
+   35  sudo apt-get install -y apt-transport-https
+   36  sudo apt update
+   37  sudo apt-get install -y dotnet-sdk-3.1
+   38  sudo apt-get install -y apt-transport-https
+   39  sudo apt-get install -y aspnetcore-runtime-3.1
+   40  sudo apt-get install -y dotnet-runtime-3.1
+   41  cd /var/app/banca/BanCaLiteNet
+   42  dotnet publish -o publish
+   43  cd /var/app/banca/BanCaLiteNet/publish
+   44  nohup dotnet BanCaLiteNet.dll >/dev/null 2>&1 &
+   45  sudo netstat -tulpn
+   46  @rawdatabot
+   47  sugoDev@123a
+   48  cd /var/app/BackendMaster
+   49  chmod 777 install.sh
+   50  chmod 777 gradlew
+   51  ./install.sh
+   52  cd /var/app/Backend2Dx
+   53  chmod 777 install.sh
+   54  chmod 777 gradlew
+   55  /install.sh
+   56  cd /var/app/BackendRoy
+   57  chmod 777 install.sh
+   58  chmod 777 gradlew
+   59  ./install.sh
+   60  apt install net-tools
+   61  sudo netstat -tulpn
+   62  sudo chmod -R 777 /var/app/www/daily/
+   63  service nginx stop
+   64  service nginx start
+   65  cd /var/app/www/webbuild
+   66  unzip web-mobile.zip
+   67  apt-get update -y
+   68  apt install maven -y
+   69  cd /var/app/txst
+   70  mvn install:install-file -Dfile=/var/app/BackendMaster/game/tlmn/libs/VbeeCommon.jar -DgroupId=VbeeCommon -DartifactId=vbeeCommon -Dversion=1.0 -Dpackaging=jar
+   71  chmod 777 mvnw
+   72  ./mvnw -Pdev clean verify
+   73  cd /var/app/txst/target
+   74  nohup java -jar TXST-0.0.1-SNAPSHOT.jar >> txcb.out 2>&1&
+   75  upload site-enable vào /etc/nginx/sites-enabled
+   76  service nginx reload
+   77  cd /var/app/www/webbuild
+   78  unzip a.zip
+   79  reboot
+   80  cd /var/app/install
+   81  docker-compose start
+   82  docker exec -it -u root game-db bash
+   83  cd /var/app/BackendMaster
+   84  ./install.sh
+   85  cd /var/app/BackendRoy
+   86  ./install.sh
+   87  cd /var/app/Backend2Dx
+   88  ./install.sh
+   89  cd /var/app/txst/target
+   90  nohup java -jar TXST-0.0.1-SNAPSHOT.jar >> txcb.out 2>&1&
+   91  cd /var/app/banca/BanCaLiteNet/publish
+   92  nohup dotnet BanCaLiteNet.dll >/dev/null 2>&1 &
+   93  cd /var/app/www/webbuild
+   94  rm a.zip
+   95  rm assets
+   96  rm -rf assets
+   97  rm -rf src
+   98  unzip a.zip
+   99  reboot
+  100  cd /var/app/www/adminphp-develop
+  101  rm -rf admintx
+  102  rm -rf vendor
+  103  rm -rf path
+  104  rm -rf public
+  105  rm -rf system
+  106  rm -rf ckfinder
+  107  rm -rf application
+  108  unzip adminphp-develop.zip
+  109  rm -rf adminphp-develop
+  110  cd /var/app/install
+  111  docker-compose start
+  112  docker exec -it -u root game-db bash
+  113  cd /var/app/BackendMaster
+  114  ./install.sh
+  115  cd /var/app/BackendRoy
+  116  ./install.sh
+  117  cd /var/app/Backend2Dx
+  118  ./install.sh
+  119  cd /var/app/txst/target
+  120  nohup java -jar TXST-0.0.1-SNAPSHOT.jar >> txcb.out 2>&1&
+  121  cd /var/app/banca/BanCaLiteNet/publish
+  122  nohup dotnet BanCaLiteNet.dll >/dev/null 2>&1 &
+  123  cd /var/app/www/adminphp-develop
+  124  unzip adminphp-develop.zip
+  125  cd var/app/www/adminphp-develop 
+  126  cd /var/app/www
+  127  cd /var/app/www/adminphp-develop
+  128  rm -rf admintx
+  129  rm -rf path
+  130  rm -rf public
+  131  rm -rf vendor
+  132  rm -rf ckfinder
+  133  rm -rf application
+  134  rm -rf system
+  135  unzip admnew.zip
+  136  free -m
+  137  top
+  138  free -m
+  139  cd /var/app/install
+  140  docker-compose start
+  141  docker exec -it -u root game-db bash
+  142  cd /var/app/BackendMaster
+  143  ./install.sh
+  144  cd /var/app/BackendRoy
+  145  ./install.sh
+  146  cd /var/app/Backend2Dx
+  147  ./install.sh
+  148  cd /var/app/txst/target
+  149  nohup java -jar TXST-0.0.1-SNAPSHOT.jar >> txcb.out 2>&1&
+  150  cd /var/app/banca/BanCaLiteNet/publish
+  151  nohup dotnet BanCaLiteNet.dll >/dev/null 2>&1 &
+  152  free -m
+  153  cd/var/app/www/webbuild
+  154  cd /var/app/www/webbuild
+  155  rm -rf assets
+  156  rm -rf src
+  157  unzip web-mobile.zip
+  158  cd /var/app/www/webbuild
+  159  rm -rf web-mobile
+  160  unzip web-mobile.zip
+  161  cd /var/app/install
+  162  docker-compose start
+  163  docker exec -it -u root game-db bash
+  164  cd /var/app/BackendMaster
+  165  ./install.sh
+  166  cd /var/app/BackendRoy
+  167  ./install.sh
+  168  cd /var/app/Backend2Dx
+  169  ./install.sh
+  170  cd /var/app/txst/target
+  171  nohup java -jar TXST-0.0.1-SNAPSHOT.jar >> txcb.out 2>&1&
+  172  cd /var/app/banca/BanCaLiteNet/publish
+  173  nohup dotnet BanCaLiteNet.dll >/dev/null 2>&1 &
+  174  top
+  175  docker 
+  176  docker ps
+  177  docker stats
+  178  top
+  179  history

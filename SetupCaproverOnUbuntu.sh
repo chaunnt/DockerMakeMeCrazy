@@ -2,7 +2,7 @@
 
 ## Install docker
 
-Refer `https://docs.docker.com/engine/install/debian/` for details
+# Refer `https://docs.docker.com/engine/install/debian/` for details
 
 sudo apt-get remove docker docker-engine docker.io containerd runc -y
 
@@ -16,7 +16,7 @@ echo "Done Docker"
 
 ## Install caprover from docker
 
-Refer `https://caprover.com/docs/get-started.html` for details
+# Refer `https://caprover.com/docs/get-started.html` for details
 
 ufw allow 80,443,3000,996,7946,4789,2377/tcp; ufw allow 7946,4789,2377/udp;
 

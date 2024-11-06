@@ -15,12 +15,15 @@ docker system df -v
 
 # Docker stats
 
-docker stats --no-stream --format "table {{.Name}}\t{{.Container}}\t{{.MemUsage}}" | sort -k 3 -h 
+docker stats --no-stream --format "table {{.MemUsage}}\t{{.Name}}\t{{.Container}}" | sort -k 1 -h 
 
 #link redirect
-https://lp-zm.zapps.vn/?url=https://game.nasdaqiii.com
-https://www.google.com/url?q=https://hdcredit.vaytiennhanh24h-inc.com/HDCredit_x32_v1.2.1.3.apk&sa=D&source=editors&ust=1694155802533401&usg=AOvVaw3Mhbgj0tt4-nou2oqo2Jum
-https://lp-zm.zapps.vn/?url=https://hdcredit.vaytiennhanh24h-inc.com/HDCredit_x32_v1.2.1.3.apk
+https://lp-zm.zapps.vn/?url=https://google.com
+https://www.google.com/url?q=https://google.com&sa=D&source=editors&ust=1694155802533401&usg=AOvVaw3Mhbgj0tt4-nou2oqo2Jum
+https://lp-zm.zapps.vn/?url=https://google.com
+https://jp.zaloapp.com/at?page=CONFIRM&action=PROCEED&key=3974945886958617969&url=https://google.com
+https://jp.zaloapp.com/cf?url=https://google.com
+https://l.facebook.com/l.php?u=https://google.com
 
 curl 'https://portal3.brandsms.vn/apis/17f5a610c6b64275886dc5f587a9c8ba' \
   -H 'Accept: application/json, text/plain, */*' \
