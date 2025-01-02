@@ -1,0 +1,6 @@
+SetEnvIfNoCase User-Agent "Googlebot" bad_bot
+SetEnvIfNoCase User-Agent "AdsBot-Google" bad_bot
+SetEnvIfNoCase User-Agent "Mediapartners-Google" bad_bot
+Order Allow,Deny
+Allow from all
+Deny from env=bad_bot
