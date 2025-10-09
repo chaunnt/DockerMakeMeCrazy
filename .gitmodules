@@ -1,0 +1,3 @@
+[submodule "Rep/FITCST_API_CopyTrade"]
+	path = Rep/FITCST_API_CopyTrade
+	url = git@github.com:FreeDevTeam/FITCST_API_CopyTrade.git
