@@ -18,6 +18,7 @@ fi
 BASE_DIR="/home/$USERNAME"
 USER_WORK_DIR="$BASE_DIR/data"
 SSHD_CONFIG="/etc/ssh/sshd_config"
+WEB_USER="www-data"
 
 #03 Nếu truyền path volume gốc thì tự động trỏ vào _data
 echo "#03 Chuẩn hóa APP_DIR về thư mục _data"
@@ -59,7 +60,15 @@ systemctl restart ssh
 #09 Xoá user cũ nếu tồn tại
 echo "#09 Xoá user cũ nếu tồn tại"
 if id "$USERNAME" &>/dev/null; then
-    userdel "$USERNAME"
+    pkill -TERM -u "$USERNAME" 2>/dev/null || true
+    sleep 1
+    pkill -KILL -u "$USERNAME" 2>/dev/null || true
+
+    if command -v loginctl >/dev/null 2>&1; then
+        loginctl terminate-user "$USERNAME" 2>/dev/null || true
+    fi
+
+    userdel -r -f "$USERNAME"
 fi
 
 #10 Xoá home cũ còn sót
@@ -93,17 +102,20 @@ echo "#16 Set permission cho thư mục chroot"
 chown root:root "$BASE_DIR"
 chmod 755 "$BASE_DIR"
 
-chown "$USERNAME:$USERNAME" "$USER_WORK_DIR"
-chmod 700 "$USER_WORK_DIR"
+chmod 755 "$USER_WORK_DIR"
 
 #17 Đảm bảo user có quyền ghi trên thư mục dữ liệu thật
 echo "#17 Đảm bảo user có quyền ghi trên thư mục dữ liệu thật"
 if command -v setfacl >/dev/null 2>&1; then
     setfacl -R -m "u:$USERNAME:rwX" "$APP_DIR"
     setfacl -R -m "d:u:$USERNAME:rwX" "$APP_DIR"
+    setfacl -R -m "u:$WEB_USER:rwX" "$APP_DIR"
+    setfacl -R -m "d:u:$WEB_USER:rwX" "$APP_DIR"
 else
-    chown -R "$USERNAME:$USERNAME" "$APP_DIR"
-    chmod -R u+rwX "$APP_DIR"
+    usermod -a -G "$WEB_USER" "$USERNAME"
+    chown -R "$WEB_USER:$WEB_USER" "$APP_DIR"
+    find "$APP_DIR" -type d -exec chmod 2775 {} \;
+    find "$APP_DIR" -type f -exec chmod 664 {} \;
 fi
 
 #18 Thêm cấu hình SSH jail cho user
